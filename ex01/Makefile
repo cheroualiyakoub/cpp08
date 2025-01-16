@@ -10,7 +10,7 @@ GREEN = \033[32m
 RED = \033[31m
 RESET = \033[0m
 
-SRC = 	$(SRCDIR)main.cpp
+SRC = 	$(SRCDIR)main.cpp $(SRCDIR)Span.cpp 
 		
 
 OBJ = $(SRC:$(SRCDIR)%.cpp=$(ODIR)%.o)
