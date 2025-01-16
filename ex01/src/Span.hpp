@@ -6,7 +6,7 @@
 /*   By: ycheroua <ycheroua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:12:37 by ycheroua          #+#    #+#             */
-/*   Updated: 2025/01/16 17:25:51 by ycheroua         ###   ########.fr       */
+/*   Updated: 2025/01/16 22:45:16 by ycheroua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 #include <exception>
 #include <list>
 #include <iostream>
-#include <list>
+#include <vector>
 
 class Span
 {
 	private:
-		std::list<int> numbers;
-		unsigned int n;
+		std::vector<int> numbers;
+		unsigned int size;
 		
 		
 	public:
@@ -34,25 +34,17 @@ class Span
 
 		Span& operator=(const Span& copy);
 
-		void addNumber(unsigned int value);
+		void addNumber(int value);
+		void addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 		unsigned int shortestSpan(void);				
 		unsigned int longestSpan(void);
 
-		class NoNumberStoredEX : public std::exception
+		class fullContainerException : public std::exception
 		{
 			public:
 				virtual const char *what() const throw();
 		};
-		class onlyOneNumberStoredEX : public std::exception
-		{
-			public:
-				virtual const char *what() const throw();
-		};
-		class noSpanCanBeFound : public std::exception
-		{
-			public:
-				virtual const char *what() const throw();
-		};
+
 };
 
 #endif
