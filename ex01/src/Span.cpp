@@ -6,7 +6,7 @@
 /*   By: ycheroua <ycheroua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:12:55 by ycheroua          #+#    #+#             */
-/*   Updated: 2025/01/16 22:50:11 by ycheroua         ###   ########.fr       */
+/*   Updated: 2025/01/16 22:59:21 by ycheroua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,5 @@ unsigned int Span::longestSpan(void)
 
 const char *Span::fullContainerException::what() const throw()
 {
-	return ("Container full, value can not be aded");
+	return ("Span container is full. Cannot add more numbers.");
 }
