@@ -6,7 +6,7 @@
 /*   By: ycheroua <ycheroua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:37:52 by ycheroua          #+#    #+#             */
-/*   Updated: 2025/01/18 15:04:35 by ycheroua         ###   ########.fr       */
+/*   Updated: 2025/01/18 15:12:22 by ycheroua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,18 +68,30 @@ void testSUbject2()
 	std::list<int> s(mstack2);
 }
 
-void testBasicFunctionality() {
-    std::cout << "=== Test 1: Basic Functionality ===" << std::endl;
+void testListComparisonSUbject3() {
+    std::cout << "\n=== Test 0,2: Subject Test 3 ,Comparison with std::list ===" << std::endl;
+
     MutantStack<int> mstack;
+    std::list<int> lst;
+
     mstack.push(5);
+    lst.push_back(5);
     mstack.push(17);
-    std::cout << "Top element: " << mstack.top() << std::endl;
-    mstack.pop();
-    std::cout << "Size after pop: " << mstack.size() << std::endl;
+    lst.push_back(17);
     mstack.push(3);
-    mstack.push(5);
-    mstack.push(737);
-    mstack.push(0);
+    lst.push_back(3);
+
+    std::cout << "MutantStack elements: ";
+    for (MutantStack<int>::iterator it = mstack.begin(); it != mstack.end(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+
+    std::cout << "std::list elements: ";
+    for (std::list<int>::iterator it = lst.begin(); it != lst.end(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
 }
 
 void testIteration(MutantStack<int> &mstack) {
@@ -156,8 +168,25 @@ void testCompatibilityWithSTL(MutantStack<int> &mstack) {
 
 int main()
 {
-	
+
 	testSubject1();
 	testSUbject2();
+	testListComparisonSUbject3();
+
+
+    MutantStack<int> mstack;
+    mstack.push(5);
+    mstack.push(17);
+    mstack.pop();
+    mstack.push(3);
+    mstack.push(5);
+    mstack.push(737);
+    mstack.push(0);
+
+    testIteration(mstack);
+    testReverseIteration(mstack);
+    testCopyAndAssignment(mstack);
+    testEmptyStackBehavior();
+    testCompatibilityWithSTL(mstack);
 	return (0);
 }
